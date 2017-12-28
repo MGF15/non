@@ -1,0 +1,102 @@
+.nav li{
+  display: inline-block;
+  padding: 7px;
+}
+#title{
+  border: 1px solid #ccc;
+  height: 25px;
+  width: 50%;
+  
+}
+.nav .search{
+  float: right;
+  border: none;
+  margin-right: 10px;
+  font-size: 18px;
+  margin-top: 2.5px;
+}
+.nav input , button{
+ border: 0;
+ height: 25px;
+
+}
+.nav button:hover{
+  background-color: #117f83;
+}
+.nav button{
+  background-color: #9e9d9d;
+}
+.new{
+  width: 70%;
+  margin: auto;
+  padding-left: 25%;
+}
+.nav {
+  background-color: #e6e6e6;
+  width: 90%;
+  margin: auto;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #117f83;
+}
+.nav a:hover{
+  color: white;
+}
+.ql-toolbar {
+  text-align: center;
+}
+#addnew, #delete , #next ,#back{
+  border: 1px ;
+  width: 115px;
+  height: 30px;
+  color: #117f83;
+  background-color: #e6e6e6;
+}
+#addnew:hover,#delete:hover,#next:hover,#back:hover{
+  color: white;
+  background-color: #117f83;
+}
+#delete , #next{
+  float: right;
+}
+.posts{
+  padding-top: 5%;
+  margin: auto;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+hr{
+  border: 1.8px solid whitesmoke;
+}
+#content{
+  font-size: 12px;
+}
+
+.posts .posturl{
+  color: black;
+  text-decoration: none;
+}
+.posts .posturl:hover{
+  color: #117f83;
+}
+.post{
+ margin: auto;
+ width: 70%;
+}
+.title{
+  font-size: 20px;
+  color:cadetblue;
+}
+/*.content{
+  font-size: 13px;
+}*/
+.date{
+  font-size: 12px;
+  color: cadetblue;
+}
+@font-face {
+  font-family: 'Karbalaei';
+  src: url("{{ url_for('static',filename='fonts/Karbalaei.ttf') }}");
+}

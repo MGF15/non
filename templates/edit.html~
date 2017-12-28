@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='quill.snow.css') }}">
+<script src="{{ url_for('static',filename='quill.min.js') }}"></script>
+</head>
+<body>
+<div class="nav">
+<ul>
+<li><a href="/">posts</a></li>
+<li><a href="/new">new</a></li>
+</ul>
+</div>
+<p>
+{% for i in post %}
+<form method="post" action="/edited">
+<div class="new" >
+Title <input name="title" title="title" id="title" value="{{i.title}}"><p>
+</div>
+<input name="post" type="hidden">
+<input name="id" type="hidden" value="{{i.xid}}">
+{% endfor %}
+<div id="editor" ></div>
+<br ><button id="addnew">Save</button>
+</form>
+<script>
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],
+  ['blockquote'],
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'direction': 'rtl' }],
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ 'color': [] }],
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+  ['image'],
+  ['link'],
+  ['clean']
+];
+var quill = new Quill('#editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
+quill.clipboard.dangerouslyPasteHTML('{{i.post | safe}}');
+var form = document.querySelector('form');
+form.onsubmit = function() {
+var about = document.querySelector('input[name=post]');
+about.value = quill.root.innerHTML; // JSON.stringify(quill.getContents());
+};
+
+</script>
+</body>
+</html>

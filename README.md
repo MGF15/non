@@ -1,7 +1,10 @@
 # non
 A simple **Personal** microblog based on flask 
 
-# install & run
+# clone , install & run
+> git clone https://github.com/MGF15/non.git
+
+> cd non
 
 > pip install Flask 
 
